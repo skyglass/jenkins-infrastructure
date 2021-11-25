@@ -1,0 +1,46 @@
+{
+    "variables" : {
+        "region" : "us-east-1",
+        "aws_profile": "ops-account",
+        "source_ami" : "ami-02e136e904f3da870",
+        "instance_type": "t2.micro",
+        "ssh_key": "/Users/skliarm/.ssh/jenkins_ssh"
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "profile" : "{{user `aws_profile`}}",
+            "region" : "{{user `region`}}",
+            "instance_type" : "{{user `instance_type`}}",
+            "source_ami" : "{{user `source_ami`}}",
+            "ssh_username" : "ec2-user",
+            "ami_name" : "jenkins-master-2.204.1",
+            "ami_description" : "Amazon Linux Image with Jenkins Server",
+            "run_tags" : {
+                "Name" : "packer-builder"
+            }
+        }
+    ],
+    "provisioners" : [
+        {
+            "type" : "file",
+            "source" : "./scripts",
+            "destination" : "/tmp/"
+        },
+        {
+            "type" : "file",
+            "source" : "./config",
+            "destination" : "/tmp/"
+        },
+        {
+            "type" : "file",
+            "source" : "{{user `ssh_key`}}",
+            "destination" : "/tmp/id_rsa"
+        },
+        {
+            "type" : "shell",
+            "script" : "./setup.sh",
+            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+        }
+    ]
+}
