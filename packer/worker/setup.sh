@@ -12,6 +12,10 @@ echo "Install Docker engine"
 yum update -y
 yum install docker -y
 usermod -aG docker ec2-user
+reboot
+systemctl unmask docker.service
+systemctl unmask docker.socket
+systemctl start docker.service
 systemctl enable docker
 
 echo "Install git"

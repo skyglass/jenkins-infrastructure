@@ -1,6 +1,6 @@
 {
     "variables" : {
-        "service_account" : "service-account.json",
+        "service_account" : "./service-account.json",
         "project": "skyglass-composer",
         "zone": "us-east1-b",
         "ssh_key" : "/Users/skliarm/.ssh/jenkins_ssh"

@@ -14,6 +14,7 @@ chkconfig jenkins on
 
 echo "Install git"
 yum install -y git
+yum install -y zip unzip
 
 echo "Setup SSH key"
 mkdir /var/lib/jenkins/.ssh
