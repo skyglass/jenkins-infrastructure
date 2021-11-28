@@ -10,9 +10,8 @@ target/
 /terraform/k3s/k3s.yaml.eksctl.lock
 /terraform/.terraform
 /terraform/terraform.auto.tfvars
-/terraform/master/terraform.auto.tfvars
-/terraform/master/.terraform
 /terraform/workers/.terraform
+/terraform/workers/.terraform.lock.hcl
 /terraform/terraform.tfstate.backup
 /packer/master/jenkins_ssh
 /packer/master/jenkins_ssh.pub
@@ -27,3 +26,9 @@ target/
 /gcp/terraform/master/.terraform
 /gcp/terraform/workers/.terraform
 /gcp/terraform/terraform.tfstate.backup
+/webhook-forwarder/terraform/.terraform.lock.hcl
+/webhook-forwarder/terraform/.terraform
+/webhook-forwarder/terraform/terraform.auto.tfvars
+/webhook-forwarder/node_modules
+/webhook-forwarder/package-lock.json
+/webhook-forwarder/deployment.zip
